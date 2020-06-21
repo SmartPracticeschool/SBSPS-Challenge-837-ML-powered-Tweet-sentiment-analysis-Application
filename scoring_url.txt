@@ -1,0 +1,1 @@
+Scoring End-point:https://eu-gb.ml.cloud.ibm.com/v4/deployments/54a4deea-1053-4ac0-bd0f-e9d6d0cce0c5/predictions
