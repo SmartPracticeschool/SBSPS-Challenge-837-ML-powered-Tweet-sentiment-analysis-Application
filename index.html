@@ -1,0 +1,167 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <title>Sentweet-Twitter Sentiment Analysis</title>
+    
+
+<head>
+    <nav class="navbar navbar-light bg-light">
+        <h1 class="navbar-brand"><div style="color:#900000 "><b>Sentiment Analysis</b></h1></div>
+    </nav>
+
+
+  <div class="container mt-5">
+        <form action="/" method="post">
+            <div class="row">
+                <div class="col-9">
+                  <div style="color:#FFFFFF"><label for="keyword">Enter Keyword/Tag to search about:</label>
+                    <input name="keyword" type="text" class="form-control validate" id="keyword" value="" required placeholder="Enter search word"/>
+	    <input type="number" name="tweet_no" class="form-control" placeholder="Count">
+	
+                </div>
+                <div class="col=9">
+                  
+                </div>
+
+              </div>
+            <button type="submit" class="btn btn-primary btn-block mt-3">Analyze</button>
+        </form>
+
+        <hr>
+    </div>
+  </head>
+
+<body>
+
+<body style="background-color:#400000 ;">
+
+{% if piedata %}
+
+        <div class="container mt-3">
+        <div class="row">
+            <div class="col">
+	<div style="color:#FFFFFF">
+                <p style="font-weight: bold">Search Term: <span class="text-info">{{ piedata[3] }}</span></p>
+            </div></div>
+
+            <div class="col">
+	<div style="color:#FFFFFF">
+                	<p class="text-success" style="font-weight: bold" style="color:#FFFFFF">Total {{ piedata[4] }} tweets analyzed</p>
+            </div>
+            </div></div>
+
+<br>
+
+
+{{graph7}}
+
+
+<img src="{{ url_for('static', filename="graph7.png") }}"alt="Loading"></img> <width="45" style="margin-top:4px;float:right;"/>
+
+
+
+      <h2 class="tm-block-title" style="color:#FFFFFF"><u>Detailed Report</u></h2>
+<hr>
+
+                     <div style="color:#008000"><strong>{{piedata[5]}}%</strong> people thought it was <b> WEAKELY POSITIVE</b></div><br>
+
+
+            <p style="font-weight:bold"><div style="color:#FFFFFF"><b>Weakely Positive:</b> {{ piedata[5] }}%</p></div>
+
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: {{ piedata[5] }}%;" aria-valuenow={{ piedata[5] }} aria-valuemin='0' aria-valuemax='100'>{{ piedata[5] }}%</div><br>
+            </div>
+
+            <br>
+
+<div style="color:#008000"><strong>{{piedata[0]}}%</strong> people thought it was <b>POSITIVE</b></div><br>
+
+
+            <p style="font-weight: bold"><div style="color:#FFFFFF"><b>Positive:</b> {{ piedata[0] }}%</p></div>
+
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: {{ piedata[0] }}%;" aria-valuenow={{ piedata[0] }} aria-valuemin='0' aria-valuemax='100'>{{ piedata[0] }}%</div><br>
+            </div>
+
+            <br>
+
+<div style="color:#008000"><strong>{{piedata[6]}}%</strong> people thought it was <b> STRONGLY POSITIVE</b></div><br>
+
+
+            <p style="font-weight: bold"><div style="color:#FFFFFF"><b>Strongly Positive: </b>{{ piedata[6] }}%</p></div>
+
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: {{ piedata[6] }}%;" aria-valuenow={{ piedata[6] }} aria-valuemin='0' aria-valuemax='100'>{{ piedata[6] }}%</div><br>
+            </div>
+
+            <br>
+
+
+  <div style="color:#c0504e"><strong>{{piedata[7]}}%</strong> people thought it was <b> WEAKELY NEGATIVE</b></div><br>
+
+ <p style="font-weight: bold"><div style="color:#FFFFFF"><b>Weakely Negative:</b> {{ piedata[7] }}%</p></div>
+
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: {{ piedata[7] }}%;" aria-valuenow={{ piedata[7] }} aria-valuemin='0' aria-valuemax='100'>{{ piedata[7] }}%</div>
+            </div>
+
+            <br>
+
+                        
+                    <div style="color:#c0504e"><strong>{{piedata[1]}}%</strong> people thought it was <b>NEGATIVE</b></div><br>
+
+ <p style="font-weight: bold"><div style="color:#FFFFFF"><b>Negative: </b>{{ piedata[1] }}%</p></div>
+
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: {{ piedata[1] }}%;" aria-valuenow={{ piedata[1] }} aria-valuemin='0' aria-valuemax='100'>{{ piedata[1] }}%</div>
+            </div>
+
+  <div style="color:#c0504e"><strong>{{piedata[1]}}%</strong> people thought it was <b> STRONGLY NEGATIVE</b></div><br>
+
+ <p style="font-weight: bold"><div style="color:#FFFFFF"><b>Strongly Negative:</b> {{ piedata[8] }}%</p></div>
+
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: {{ piedata[8] }}%;" aria-valuenow={{ piedata[8] }} aria-valuemin='0' aria-valuemax='100'>{{ piedata[8] }}%</div>
+            </div>
+
+            <br>
+
+            <br>
+           
+                        <div style="color:#4aacc5"><strong>{{piedata[2]}}%</strong> people thought it was <b>NEUTRAL</b></div><br>
+
+ <p style="font-weight:bold"><div style="color:#FFFFFF"><b>Neutral: </b>{{ piedata[2] }}%</p></div>
+
+            <div class="progress" style="height: 20px;">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: {{ piedata[2] }}%;" aria-valuenow={{ piedata[2] }} aria-valuemin='0' aria-valuemax='100'>{{ piedata[2] }}%</div>
+<br>
+
+<body>
+<script type="text/javascript">
+
+        
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="alert alert-dark mt-5" role="alert">
+         Made by Sentweet
+    </div>
+
+
+	
+{% endif %}
+
+   
+  </body>
+</html>
